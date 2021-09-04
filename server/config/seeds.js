@@ -1,4 +1,14 @@
-const db = require('../config/connections');
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb+srv://User:WAYDbFgVLJLV5YAJ@cluster0.fpmlx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
+
+const db = mongoose.connection
 const { User, Product, Category } = require('../models');
 
 db.once('open', async () => {
